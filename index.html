@@ -25,15 +25,8 @@
         <h1>Gerador de Senhas</h1>
     </header>
     <main>
-        <div>
-            <label for="story">Tell us your story:</label>
-            <textarea id="story" name="story" rows="5" cols="33"></textarea>
-            </div>
-            <div>
-            <button id="submit">Populate Sample Text</button>
-        </div>
-}
-        <form class = "box">
+
+        <form class = "box" onsubmit="event.preventDefault()">
 
             <fieldset class="grupo">
 
@@ -56,7 +49,7 @@
 
             <button class="botao" onclick="generatePSW()">Gerar</button> 
 
-            <button class="botao" onclick="">Limpar</button> 
+            <button class="botao" onclick="limpar()">Limpar</button> 
             <div id="resultado">
                 <label for="answer"><strong>Senhas: </strong></label>
                 <textarea rows="6" style="width: 26em" id="answer"></textarea>
@@ -66,27 +59,21 @@
         </form>
 
         <script>
-            document.getElementById('submit').onclick = function() {
-                    document.getElementById('story').innerHTML = 'It was a dark and stormy night…';
-            }
-
             function generatePSW() {
-                // let leght = document.getElementById('pswLeght').value
+                let leght = document.getElementById('pswLeght').value
                 // let qtd = document.getElementById('pswQtd').value
                 // let spec = document.getElementById('special').value
                 // let num = document.getElementById('number').value
                 // let upp = document.getElementById('upperCase').value
-                // let low = document.getElementById('loweCase').value
-    
-      
-                document.getElementById('answer').textContent = '123456789'
+                // let low = document.getElementById('loweCase').vale
 
-
-                // alert(leght)
 
                 // alert(leght + qtd + spec)
+                document.getElementById('answer').value = leght;
             }
-            //document.getElementById('answer').textContent = '123456789'
+            function limpar() {
+                document.getElementById('answer').value = " ";
+            }
         </script>
 
     </main>
