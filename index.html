@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Senha</title>
+    <style>
+        body, form, fieldset{
+            display: block;
+            padding: 0;
+            border: 0;
+            margin: 0;
+
+        }
+
+        #check, #resultado{
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Gerador de Senhas</h1>
+    </header>
+    <main>
+        <div>
+            <label for="story">Tell us your story:</label>
+            <textarea id="story" name="story" rows="5" cols="33"></textarea>
+            </div>
+            <div>
+            <button id="submit">Populate Sample Text</button>
+        </div>
+}
+        <form class = "box">
+
+            <fieldset class="grupo">
+
+                <div class="campo">
+                    <label for="pswLeght">Digite o tamano da senha:</label><br>
+                    <input type="text" id="pswLeght" name="pswLeght"><br>
+                    <label for="pswQtd">Digite o número de senhas geradas:</label><br>
+                    <input type="text" id="pswQtd" name="pswQtd"><br>
+                </div>
+
+                <!-- Campo de tecnologias para escolha de 1 ou mais opções para marcar (checkbox) e css de classe "campo" https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/label-->
+                <div id="check">
+                    <label><input type="checkbox" id="special" value="special">Incluir caracteres especiais</label>
+                    <label><input type="checkbox" id="number" value="number">Incluir números</label>
+                    <label><input type="checkbox" id="upperCase" value="upperCase">Incluir letras maiúsculas</label>
+                    <label><input type="checkbox" id="lowerCase" value="lowerCase">Incluir letras minúsculas</label>
+                </div>
+
+            </fieldset>
+
+            <button class="botao" onclick="generatePSW()">Gerar</button> 
+
+            <button class="botao" onclick="">Limpar</button> 
+            <div id="resultado">
+                <label for="answer"><strong>Senhas: </strong></label>
+                <textarea rows="6" style="width: 26em" id="answer"></textarea>
+            </div>
+
+
+        </form>
+
+        <script>
+            document.getElementById('submit').onclick = function() {
+                    document.getElementById('story').innerHTML = 'It was a dark and stormy night…';
+            }
+
+            function generatePSW() {
+                // let leght = document.getElementById('pswLeght').value
+                // let qtd = document.getElementById('pswQtd').value
+                // let spec = document.getElementById('special').value
+                // let num = document.getElementById('number').value
+                // let upp = document.getElementById('upperCase').value
+                // let low = document.getElementById('loweCase').value
+    
+      
+                document.getElementById('answer').textContent = '123456789'
+
+
+                // alert(leght)
+
+                // alert(leght + qtd + spec)
+            }
+            //document.getElementById('answer').textContent = '123456789'
+        </script>
+
+    </main>
+</body>
+</html>
