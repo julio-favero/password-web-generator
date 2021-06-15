@@ -60,16 +60,21 @@
 
         <script>
             function generatePSW() {
+                let password = 0
                 let leght = document.getElementById('pswLeght').value
-                // let qtd = document.getElementById('pswQtd').value
+                let qtd = document.getElementById('pswQtd').value
                 // let spec = document.getElementById('special').value
                 // let num = document.getElementById('number').value
                 // let upp = document.getElementById('upperCase').value
                 // let low = document.getElementById('loweCase').vale
 
-
-                // alert(leght + qtd + spec)
-                document.getElementById('answer').value = leght;
+                for (let x = 1; x < qtd; x ++){
+                    
+                    
+                    password = password + ";" + x
+                }
+                document.getElementById('answer').value = password;
+                
             }
             function limpar() {
                 document.getElementById('answer').value = " ";
