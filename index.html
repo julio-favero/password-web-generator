@@ -32,9 +32,9 @@
 
                 <div class="campo">
                     <label for="pswLeght">Digite o tamano da senha:</label><br>
-                    <input type="text" id="pswLeght" name="pswLeght"><br>
+                    <input type="Number" id="pswLeght" name="pswLeght" min="0"><br>
                     <label for="pswQtd">Digite o número de senhas geradas:</label><br>
-                    <input type="text" id="pswQtd" name="pswQtd"><br>
+                    <input type="Number" id="pswQtd" name="pswQtd" min="1" max="6"><br>
                 </div>
 
                 <!-- Campo de tecnologias para escolha de 1 ou mais opções para marcar (checkbox) e css de classe "campo" https://developer.mozilla.org/pt-BR/docs/Web/HTML/Element/label-->
@@ -60,20 +60,29 @@
 
         <script>
             function generatePSW() {
-                let password = 0
+				let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+				let charactersLength = characters.length;
+                let passwordN = ' '
                 let leght = document.getElementById('pswLeght').value
                 let qtd = document.getElementById('pswQtd').value
-                // let spec = document.getElementById('special').value
+                //let spec = document.getElementById('special').value
                 // let num = document.getElementById('number').value
                 // let upp = document.getElementById('upperCase').value
                 // let low = document.getElementById('loweCase').vale
-
-                for (let x = 1; x < qtd; x ++){
-                    
-                    
-                    password = password + ";" + x
+                for(let y = 0; y < qtd; y ++){
+                    let password = ''
+                    for(let x = 0; x < leght; x ++){
+                        //https://stackoverflow.com/questions/1349404/generate-random-string-characters-in-javascript
+                        //https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/String/charAt
+                        //https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/floor
+                        //https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Reference/Global_Objects/Math/random
+                        // password = password + characters.charAt(Math.floor(Math.random() * charactersLength))
+                        password = password + characters.charAt(Math.floor(Math.random() * charactersLength))
+                    }
+                    passwordN = password + "; " + passwordN
                 }
-                document.getElementById('answer').value = password;
+
+                document.getElementById('answer').value = passwordN;               
                 
             }
             function limpar() {
