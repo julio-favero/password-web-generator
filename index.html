@@ -32,7 +32,7 @@
 
                 <div class="campo">
                     <label for="pswLeght">Digite o tamano da senha:</label><br>
-                    <input type="Number" id="pswLeght" name="pswLeght" min="0"><br>
+                    <input type="Number" id="pswLeght" name="pswLeght" min="0" max="40"><br>
                     <label for="pswQtd">Digite o número de senhas geradas:</label><br>
                     <input type="Number" id="pswQtd" name="pswQtd" min="1" max="6"><br>
                 </div>
@@ -42,7 +42,6 @@
                     <label><input type="checkbox" id="special" value="special">Incluir caracteres especiais</label>
                     <label><input type="checkbox" id="number" value="number">Incluir números</label>
                     <label><input type="checkbox" id="upperCase" value="upperCase">Incluir letras maiúsculas</label>
-                    <label><input type="checkbox" id="lowerCase" value="lowerCase">Incluir letras minúsculas</label>
                 </div>
 
             </fieldset>
@@ -60,15 +59,21 @@
 
         <script>
             function generatePSW() {
-				let characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
-				let charactersLength = characters.length;
+				let characters = 'abcdefghijklmnopqrstuvwxyz'
+
                 let passwordN = ' '
                 let leght = document.getElementById('pswLeght').value
                 let qtd = document.getElementById('pswQtd').value
-                //let spec = document.getElementById('special').value
-                // let num = document.getElementById('number').value
-                // let upp = document.getElementById('upperCase').value
-                // let low = document.getElementById('loweCase').vale
+                let spec = document.getElementById('special').checked
+                let num = document.getElementById('number').checked
+                let upp = document.getElementById('upperCase').checked
+
+                if(spec == true){ characters += '@!#$%&*()' }
+                if(num == true){ characters += '123456789' }
+                if(upp == true){ characters += 'ABCDEFGHIJKLMNOPQRSTUVXWYZ'}
+
+                let charactersLength = characters.length;
+
                 for(let y = 0; y < qtd; y ++){
                     let password = ''
                     for(let x = 0; x < leght; x ++){
@@ -89,7 +94,6 @@
                 document.getElementById('answer').value = " ";
             }
         </script>
-
     </main>
 </body>
 </html>
